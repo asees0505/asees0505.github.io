@@ -46,16 +46,64 @@
     .stat { padding: 14px 16px; border-radius: 10px; background: var(--surface); border-left: 3px solid var(--accent); }
     .stat-num { font-family: 'DM Serif Display', serif; font-size: 26px; font-weight: 400; color: var(--text); line-height: 1; margin-bottom: 2px; }
     .stat-desc { font-size: 12px; color: var(--muted); }
-    .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .project-card { padding: 1.4rem; border-radius: 12px; border: 1px solid var(--border); background: #fff; transition: transform 0.15s, box-shadow 0.15s; }
-    .project-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.07); }
-    .project-type { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.8px; text-transform: uppercase; padding: 3px 9px; border-radius: 5px; display: inline-block; margin-bottom: 10px; font-weight: 500; }
-    .tag-ml { background: var(--accent-light); color: var(--accent); }
+
+    /* ── PROJECT CARDS (expanded) ── */
+    .projects-list { display: flex; flex-direction: column; gap: 1.5rem; }
+
+    .project-card {
+      padding: 1.75rem;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: #fff;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .project-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.07);
+    }
+
+    .project-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 0.75rem; flex-wrap: wrap; }
+
+    .project-type { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.8px; text-transform: uppercase; padding: 3px 9px; border-radius: 5px; display: inline-block; font-weight: 500; white-space: nowrap; }
+    .tag-ml  { background: var(--accent-light); color: var(--accent); }
     .tag-viz { background: var(--teal-light); color: var(--teal); }
-    .project-card h3 { font-size: 15px; font-weight: 500; margin-bottom: 6px; line-height: 1.35; }
-    .project-card p { font-size: 13px; color: var(--muted); font-weight: 300; line-height: 1.65; margin-bottom: 14px; }
-    .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+
+    .project-card h3 { font-size: 17px; font-weight: 500; margin-bottom: 0.5rem; line-height: 1.35; }
+
+    .project-desc { font-size: 14px; color: var(--muted); font-weight: 300; line-height: 1.7; margin-bottom: 1.25rem; }
+
+    /* stats row */
+    .project-stats { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 1.25rem; }
+    .pstat {
+      background: var(--surface);
+      border-radius: 8px;
+      padding: 10px 14px;
+      flex: 1;
+      min-width: 100px;
+    }
+    .pstat-num { font-family: 'DM Serif Display', serif; font-size: 20px; font-weight: 400; color: var(--text); line-height: 1; margin-bottom: 2px; }
+    .pstat-desc { font-size: 11px; color: var(--muted); }
+
+    /* chips */
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.25rem; }
     .chip { font-family: 'DM Mono', monospace; font-size: 10px; padding: 3px 8px; border-radius: 5px; border: 1px solid var(--border); color: var(--muted); background: var(--surface); }
+
+    /* project links */
+    .project-links { display: flex; flex-wrap: wrap; gap: 8px; }
+    .project-link {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--accent);
+      text-decoration: none;
+      padding: 5px 12px;
+      border: 1px solid var(--accent-light);
+      border-radius: 6px;
+      background: var(--accent-light);
+      transition: background 0.15s;
+    }
+    .project-link:hover { background: #bfdbfe; }
+
+    /* ── SKILLS ── */
     .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
     .skill-group { padding: 1.1rem 1.25rem; border-radius: 12px; border: 1px solid var(--border); background: #fff; }
     .skill-group-title { font-size: 12px; font-weight: 500; color: var(--muted); margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
@@ -65,37 +113,28 @@
     .dot-amber { background: var(--amber); }
     .skill-list { display: flex; flex-direction: column; gap: 6px; }
     .skill-item { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--text); }
+
+    /* ── CONTACT ── */
     .contact-box { border-radius: 14px; border: 1px solid var(--border); background: linear-gradient(135deg, var(--accent-light) 0%, var(--teal-light) 100%); padding: 2.5rem; display: flex; justify-content: space-between; align-items: center; gap: 2rem; }
     .contact-box h2 { font-family: 'DM Serif Display', serif; font-size: 26px; font-weight: 400; margin-bottom: 4px; color: var(--text); }
     .contact-box p { font-size: 14px; color: var(--muted); font-weight: 300; }
     .contact-links { display: flex; flex-direction: column; gap: 10px; align-items: flex-end; flex-shrink: 0; }
     .contact-link { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--accent); text-decoration: none; display: flex; align-items: center; gap: 6px; transition: gap 0.15s; }
     .contact-link:hover { gap: 10px; }
-
-    /* ── COPY BUTTON ── */
     .email-row { display: flex; align-items: center; gap: 6px; }
-    .copy-btn {
-      background: none;
-      border: 1px solid var(--accent);
-      border-radius: 5px;
-      color: var(--accent);
-      cursor: pointer;
-      font-size: 10px;
-      padding: 2px 7px;
-      font-family: 'DM Mono', monospace;
-      opacity: 0.6;
-      transition: opacity 0.15s, background 0.15s;
-      white-space: nowrap;
-    }
+    .copy-btn { background: none; border: 1px solid var(--accent); border-radius: 5px; color: var(--accent); cursor: pointer; font-size: 10px; padding: 2px 7px; font-family: 'DM Mono', monospace; opacity: 0.6; transition: opacity 0.15s, background 0.15s; white-space: nowrap; }
     .copy-btn:hover { opacity: 1; background: var(--accent-light); }
     .copy-btn.copied { color: var(--teal); border-color: var(--teal); background: var(--teal-light); opacity: 1; }
 
     footer { text-align: center; padding: 2rem 0; font-size: 12px; color: var(--hint); border-top: 1px solid var(--border); margin-top: 5rem; }
+
     @media (max-width: 600px) {
-      .about-grid, .projects-grid, .skills-grid { grid-template-columns: 1fr; }
+      .about-grid, .skills-grid { grid-template-columns: 1fr; }
       .contact-box { flex-direction: column; align-items: flex-start; }
       .contact-links { align-items: flex-start; }
       .nav-links { display: none; }
+      .project-stats { flex-direction: column; }
+      .pstat { min-width: unset; }
     }
   </style>
 </head>
@@ -155,25 +194,93 @@
 
   <section id="projects">
     <p class="section-label">Projects</p>
-    <div class="projects-grid">
+    <div class="projects-list">
+
+      <!-- PROJECT 1: Wind Turbine -->
       <div class="project-card">
-        <span class="project-type tag-ml">Urban Systems x Town of Cochrane</span>
-        <h3>Transit System Revision for Cochrane</h3>
-        <p>Proposed and built a revised dedicated transit system for the Town of Cochrane using geospatial analysis. Placed top 5 in the case competition.</p>
+        <div class="project-header">
+          <span class="project-type tag-viz">DSMLC UCalgary x Enbridge · Placed 3rd</span>
+        </div>
+        <h3>Predicting Wind Turbine Failures Before They Happen</h3>
+        <p class="project-desc">
+          Wind turbine repairs are costly and disruptive, especially when failures come without warning. For this competition, our team built a system that spots problems early using sensor data that turbines already collect — no new hardware needed. We worked with data from 36 turbines across three wind farms in Portugal and Germany.
+          <br><br>
+          We built two detection methods and ran them side by side. One learned from past fault records to recognize warning signs. The other learned what "healthy" looks like, so it could flag anything unusual — even problems it had never seen before. Together, they power a three-level alert system (Watch, Alert, Action) that tells maintenance teams where to look and which sensor triggered the warning, cutting down unnecessary inspections by around 60%.
+        </p>
+        <div class="project-stats">
+          <div class="pstat">
+            <div class="pstat-num">99%</div>
+            <div class="pstat-desc">Fault detection recall</div>
+          </div>
+          <div class="pstat">
+            <div class="pstat-num">47–48h</div>
+            <div class="pstat-desc">Early warning window</div>
+          </div>
+          <div class="pstat">
+            <div class="pstat-num">53 days</div>
+            <div class="pstat-desc">Gearbox pre-warning</div>
+          </div>
+          <div class="pstat">
+            <div class="pstat-num">~60%</div>
+            <div class="pstat-desc">Fewer unnecessary inspections</div>
+          </div>
+        </div>
+        <div class="chips">
+          <span class="chip">Python</span>
+          <span class="chip">XGBoost</span>
+          <span class="chip">Autoencoder</span>
+          <span class="chip">Isolation Forest</span>
+          <span class="chip">CUSUM</span>
+          <span class="chip">SHAP</span>
+          <span class="chip">Jupyter</span>
+          <span class="chip">HTML / JS</span>
+        </div>
+        <div class="project-links">
+          <a href="#" class="project-link">&#8599; Live Dashboard</a>
+          <a href="#" class="project-link">&#8599; GitHub Repo</a>
+          <a href="#" class="project-link">&#9654; Demo Video</a>
+        </div>
+      </div>
+
+      <!-- PROJECT 2: Cochrane Transit -->
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-type tag-ml">Urban Systems x Town of Cochrane · Top 5</span>
+        </div>
+        <h3>Redesigning Transit for a Growing Town</h3>
+        <p class="project-desc">
+          Cochrane is one of Alberta's fastest-growing towns, but its transit system hasn't kept up. With only 8 vehicles, 3 routes running every 60 minutes, and no way to reach Calgary by bus, it's difficult for residents without a car to get around. For comparison, Airdrie — roughly twice the size — runs 26 vehicles with routes every 30 minutes.
+          <br><br>
+          Our team used real movement data from fall 2025 to map how residents actually travel through the town. From that, we designed a new system with 5 routes covering all major neighbourhoods, running every 30 to 45 minutes. We also added a new direct route to Crowfoot C-Train Station in Calgary, giving residents one-transfer access to the University of Calgary, SAIT, and downtown. The plan is designed to scale as Cochrane grows toward its 2050 population targets.
+        </p>
+        <div class="project-stats">
+          <div class="pstat">
+            <div class="pstat-num">5</div>
+            <div class="pstat-desc">New fixed routes</div>
+          </div>
+          <div class="pstat">
+            <div class="pstat-num">30–45 min</div>
+            <div class="pstat-desc">Route frequency</div>
+          </div>
+          <div class="pstat">
+            <div class="pstat-num">0 to 1</div>
+            <div class="pstat-desc">Intercity connections added</div>
+          </div>
+        </div>
         <div class="chips">
           <span class="chip">ArcGIS Pro</span>
           <span class="chip">Python</span>
           <span class="chip">pandas</span>
+          <span class="chip">Mobility Data</span>
+          <span class="chip">Heat Map Analysis</span>
+          <span class="chip">Google My Maps</span>
+        </div>
+        <div class="project-links">
+          <a href="#" class="project-link">&#9654; Demo Video</a>
+          <a href="#" class="project-link">&#8599; Interactive Map</a>
         </div>
       </div>
-      <div class="project-card">
-        <span class="project-type tag-viz">DSMLC UCalgary x Enbridge</span>
-        <h3>Wind Turbine Failure Prediction</h3>
-        <p>Predicted wind turbine failures by identifying failure-causing events through visualization of turbine temperatures and gearbox health data. Placed 3rd.</p>
-        <div class="chips">
-          <span class="chip">Python</span>
-        </div>
-      </div>
+
     </div>
   </section>
 
@@ -194,7 +301,9 @@
         <p class="skill-group-title"><span class="skill-dot dot-teal"></span>Libraries &amp; tools</p>
         <div class="skill-list">
           <span class="skill-item">pandas / numpy</span>
+          <span class="skill-item">XGBoost</span>
           <span class="skill-item">ArcGIS Pro</span>
+          <span class="skill-item">Jupyter</span>
         </div>
       </div>
       <div class="skill-group">
@@ -203,6 +312,7 @@
           <span class="skill-item">Statistical modeling</span>
           <span class="skill-item">Data visualization</span>
           <span class="skill-item">Data cleaning</span>
+          <span class="skill-item">Anomaly detection</span>
         </div>
       </div>
     </div>
@@ -218,17 +328,14 @@
         <p>Open to co-ops, internships, research roles, and collaborations.</p>
       </div>
       <div class="contact-links">
-
         <div class="email-row">
           <a href="mailto:prabhasees.raina@ucalgary.ca" class="contact-link">&#9993; prabhasees.raina@ucalgary.ca</a>
           <button class="copy-btn" onclick="copyEmail(this, 'prabhasees.raina@ucalgary.ca')">copy</button>
         </div>
-
         <div class="email-row">
           <a href="mailto:singhasees05@gmail.com" class="contact-link">&#9993; singhasees05@gmail.com</a>
           <button class="copy-btn" onclick="copyEmail(this, 'singhasees05@gmail.com')">copy</button>
         </div>
-
         <a href="https://www.linkedin.com/in/prabhasees-raina-7b1255336" target="_blank" rel="noopener noreferrer" class="contact-link">&#8599; LinkedIn</a>
         <a href="https://github.com/asees0505" target="_blank" rel="noopener noreferrer" class="contact-link">&#8599; GitHub</a>
       </div>
